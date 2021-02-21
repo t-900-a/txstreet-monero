@@ -75,14 +75,21 @@ sock.on('message', function(message) {
 	// 	}
 	// });
 
-	entryPromise.then((result) => {
-		try{
-			obj = {...obj, ...result};
-			io.emit('tx', JSON.stringify(obj));
-		}catch(error) {
- 			console.error(error);
-		}
-	});
+	  try{
+		  obj = {...obj, ...tx};
+		  io.emit('tx', JSON.stringify(obj));
+	  }catch(error) {
+		  console.error(error);
+	  }
+
+	// entryPromise.then((result) => {
+	// 	try{
+	// 		obj = {...obj, ...result};
+	// 		io.emit('tx', JSON.stringify(obj));
+	// 	}catch(error) {
+ 	// 		console.error(error);
+	// 	}
+	// });
 	
   } else if (decoded.substring(0, decoded.indexOf(":")) === "json-full-chain_main") {
 	//just notify that theres a new block, so we can look up on rpc with height
