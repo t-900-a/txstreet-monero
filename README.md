@@ -1,0 +1,1 @@
+This npm package goes on the same server as the node, connects to zeromq, and provides a socket and a few api endpoints.
